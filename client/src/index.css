@@ -1,0 +1,202 @@
+/* ---------- Theme Variables ---------- */
+:root {
+  --bg-main: #0f172a;            /* slate-900 */
+  --bg-card: #020617;            /* slate-950 */
+  --bg-square: #020617;
+  --bg-square-hover: #1e293b;    /* slate-800 */
+  --bg-square-marked: #2563eb;   /* blue-600 */
+
+  --text-main: #e5e7eb;          /* gray-200 */
+  --text-muted: #94a3b8;         /* slate-400 */
+  --text-marked: #ffffff;
+
+  --border-card: #334155;        /* slate-700 */
+  --border-square: #475569;      /* slate-600 */
+  --border-square-hover: #60a5fa;
+
+  --accent: #3b82f6;             /* blue-500 */
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Layout ---------- */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* ---------- Button ---------- */
+button {
+  margin-bottom: .5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-card);
+  padding: 0.6em 1.4em;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #020617;
+  border-color: var(--accent);
+}
+
+/* ---------- Bingo Card ---------- */
+#bingoCard {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 0.6rem; /* ⬅️ was 1rem */
+
+  width: fit-content;
+  margin: 1.25rem auto;
+
+  background-color: var(--bg-card);
+  padding: 1.25rem; /* ⬅️ slightly tighter */
+  border-radius: 20px;
+  border: 2px solid var(--border-card);
+}
+
+
+
+
+/* ---------- Squares ---------- */
+.square {
+  width: 120px;
+  height: 120px;
+
+  padding: 0.85rem;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+
+  font-size: 0.95rem;
+  line-height: 1.25;
+
+  background-color: var(--bg-square);
+  color: var(--text-main);
+
+  border: 1px solid var(--border-square);
+  border-radius: 14px;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+
+
+/* Hover state */
+.square:hover {
+  background-color: var(--bg-square-hover);
+  border-color: var(--border-square-hover);
+}
+
+/* Active click feedback */
+.square:active {
+  transform: scale(0.97);
+}
+
+/* Marked square (future state) */
+.square.marked {
+  background-color: var(--bg-square-marked);
+  color: var(--text-marked);
+  border-color: #1d4ed8;
+  
+}
+
+/* Optional: Free space */
+.square.free {
+  background-color: var(--bg-square-marked);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  border-color: rgb(255, 196, 0)
+}
+
+/* ---------- Links ---------- */
+a {
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Light Mode ---------- */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-square: #ffffff;
+    --bg-square-hover: #e5e7eb;
+
+    --text-main: #0f172a;
+    --text-muted: #475569;
+
+    --border-card: #cbd5f5;
+    --border-square: #cbd5e1;
+    --border-square-hover: #60a5fa;
+  }
+}
+.adoptionHeader {
+  display: grid;
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: .5rem;
+  line-height: .75rem;
+  color: var(--accent);
+  padding-bottom: 0.5rem;
+
+  min-width: 0; /* 👈 prevents overflow */
+}
+.bingoHeader {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  padding-bottom: 0.5rem;
+
+  min-width: 0; /* 👈 prevents overflow */
+}
+@media (max-width: 768px) {
+  #bingoCard {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 480px) {
+  #bingoCard {
+    transform: scale(0.8);
+  }
+}
