@@ -86,6 +86,7 @@ export default function Board() {
 			<div className="after"></div>
 		</div>
 	  )}
+	  <div className="boardContainer">
       <div id="bingoCard">
 		<div className="adoptionHeader">ADOPTION</div>
         {/* Header */}
@@ -116,7 +117,7 @@ export default function Board() {
           })
         )}
       </div>
-		
+		</div>
 		</div>
   );
 }

@@ -33,13 +33,19 @@
 /* ---------- Layout ---------- */
 body {
   margin: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
-
+.boardContainer {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	min-height: 100vh;
+	padding-top: 1rem;
+}
 /* ---------- Button ---------- */
 button {
   margin-bottom: .5rem;
@@ -189,14 +195,22 @@ a:hover {
 
   min-width: 0; /* 👈 prevents overflow */
 }
+@media (max-width: 1200px) {
+	#bingoCard {
+		transform: scale(.9);
+		transform-origin: top center;
+	}
+}
 @media (max-width: 768px) {
   #bingoCard {
-    transform: scale(0.9);
+    transform: scale(0.7);
+	transform-origin: top center;
   }
 }
 
 @media (max-width: 480px) {
   #bingoCard {
-    transform: scale(0.8);
+    transform: scale(0.6);
+	transform-origin: top center;
   }
 }
