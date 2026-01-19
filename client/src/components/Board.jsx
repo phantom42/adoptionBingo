@@ -1,4 +1,5 @@
 import { getNewBoard } from "../api/getNewBoard.js";
+import About from "./About.jsx";
 import { useState, useEffect, useMemo } from "react";
 
 const ROWS = [1, 2, 3, 4, 5];
@@ -68,6 +69,9 @@ export default function Board() {
 	}
   }, [userBoard]);
 
+  if (userBoard.board.length < 25) {
+	return <About handleNewBoardClick={handleNewBoardClick} />
+  }
 
   if (userBoard.board.length !== 25) {
     return (

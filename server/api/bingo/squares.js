@@ -1,17 +1,12 @@
 import connectDB from "../../db/connect.js";
-import {generateBoard} from '../../lib/boards.js'
-
+import { getAllSquares } from "../../lib/squares.js";
 export default async function handler(req, res){
-
 	switch(req.method) {
-		case 'GET':
+		case 'GET': 
 			await connectDB();
-			const userBoard = await generateBoard();
-			return res.status(200).json(userBoard);
+			const allSquares = await getAllSquares();
+			return res.status(200).json(allSquares);
 		default: 
 			return res.status(401).json({message: 'unauthorized'});
-
 	}
-	
-	return res.status(200).json({'ok': true});
 }
