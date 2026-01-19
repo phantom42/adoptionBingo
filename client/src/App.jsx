@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './pages/root';
 import {BoardPage} from './pages/board/boardPage';
-import {ListPage} from './pages/list/ListPage';
+import {ListPage} from './pages/list/listPage';
 import { boardLoader } from './pages/board/boardLoader';	
 import { listLoader } from './pages/list/listLoader';
 
