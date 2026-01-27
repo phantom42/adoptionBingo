@@ -4,10 +4,7 @@ import { getUserBoard } from "../../../lib/boards.js";
 import { getAuthFromRequest } from "../../../lib/clerk.js";
 
 export default async function handler (req, res) {
-	setCors(req,res);
-	if (req.method === "OPTIONS") {
-		return res.status(200).end();
-	}
+	if (setCors(req,res)) return ;
 	const {userId} = await getAuthFromRequest(req);
 	switch(req.method) {
 		case 'GET':

@@ -27,6 +27,8 @@ export function setCors(req, res) {
 	)
 
 	if (req.method === "OPTIONS") {
-		return res.status(200).end();
+		res.status(200).end();
+		return true;
 	}
+	return false;
 }
