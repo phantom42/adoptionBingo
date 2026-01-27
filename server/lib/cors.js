@@ -1,5 +1,6 @@
 export function setCors(req, res) {
 	const origin = req.headers.origin;
+	console.log("CORS origin:", origin);
 
 	const ALLOWED_ORIGINS = [
 		"https://adoptionbingo.com",
@@ -27,6 +28,7 @@ export function setCors(req, res) {
 	)
 
 	if (req.method === "OPTIONS") {
+		console.log("OPTIONS preflight handled");
 		res.status(200).end();
 		return true;
 	}
