@@ -1,6 +1,8 @@
 export function setCors(req, res) {
 	const origin = req.headers.origin || req.headers.referer;
 	console.log("CORS origin:", origin);
+	console.log('req',req);
+	console.log('headers',req.headers);
 
 	const ALLOWED_ORIGINS = [
 		"https://adoptionbingo.com",
@@ -17,20 +19,26 @@ export function setCors(req, res) {
 	}
 
 	res.setHeader("Access-Control-Allow-Credentials", "true");
-	res.setHeader(
-		"Access-Control-Allow-Headers", 
-		"Content-Type, Authorization"
-	);
-
+	
 	res.setHeader(
 		"Access-Control-Allow-Methods",
-		"GET, POST,OPTIONS"
+		"GET, POST, OPTIONS"
 	)
-
+	
 	if (req.method === "OPTIONS") {
 		console.log("OPTIONS preflight handled");
 		res.status(200).end();
+		res.setHeader(
+			"Access-Control-Allow-Headers", 
+			"Content-Type, X-Requested-With"
+		);
 		return true;
+	} else {
+		res.setHeader(
+			"Access-Control-Allow-Headers", 
+			"Content-Type, Authorization, X-Requested-With"
+		);
+		
 	}
 	return false;
 }
