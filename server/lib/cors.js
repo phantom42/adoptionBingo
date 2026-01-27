@@ -25,4 +25,8 @@ export function setCors(req, res) {
 		"Access-Control-Allow-Methods",
 		"GET, POST,OPTIONS"
 	)
+
+	if (req.method === "OPTIONS") {
+		return res.status(200).end();
+	}
 }
