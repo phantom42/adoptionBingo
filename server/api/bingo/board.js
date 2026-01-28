@@ -22,6 +22,8 @@ export default async function handler(req, res){
 			await connectDB();
 			const result = await saveBoard(req.body);
 			return res.status(200).json({message: result.message});
+		case 'OPTIONS':
+				return res.status(204).json({message: 'OPTIONS'});
 		default: 
 			return res.status(501).json({message: 'unauthorized', debug: 3});
 
