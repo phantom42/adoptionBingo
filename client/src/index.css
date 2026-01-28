@@ -263,3 +263,124 @@ ul > li {
 		letter-spacing: 0.05em;
 	}
 }
+/* ---------- App Header ---------- */
+.appHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.75rem 1.25rem;
+  background-color: var(--bg-card);
+  border-bottom: 2px solid var(--border-card);
+
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Left / Right sections */
+.headerLeft,
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ---------- Find Me Dropdown ---------- */
+.findMe {
+  position: relative;
+}
+
+.findMe summary {
+  cursor: pointer;
+  list-style: none;
+
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.findMe summary::-webkit-details-marker {
+  display: none;
+}
+
+.findMe ul {
+  position: absolute;
+  top: 2.2rem;
+  left: 0;
+
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+
+  padding: 0.5rem;
+  min-width: 180px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.findMe li {
+  list-style: none;
+}
+
+.findMe a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.findMe a:hover {
+  background-color: var(--bg-square-hover);
+  text-decoration: none;
+}
+
+/* ---------- Clerk Button Alignment ---------- */
+.headerRight button {
+  margin-bottom: 0;
+}
+
+/* ---------- Header Menu Links ---------- */
+.topLevelMenuItem,
+.findMe > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  padding: 0.25rem 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  color: var(--text-main);
+  cursor: pointer;
+
+  border-radius: 8px;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* Hover + focus */
+.topLevelMenuItem:hover,
+.findMe > summary:hover,
+.topLevelMenuItem:focus-visible,
+.findMe > summary:focus-visible {
+  color: var(--accent);
+  background-color: rgba(59, 130, 246, 0.12); /* subtle accent wash */
+  outline: none;
+}
+
+/* Remove default disclosure arrow */
+.findMe > summary {
+  list-style: none;
+}
+
+.findMe > summary::-webkit-details-marker {
+  display: none;
+}

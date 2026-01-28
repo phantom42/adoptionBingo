@@ -15,13 +15,8 @@ const boardSchema = new Schema({
 		type: String,
 		required: false,
 		default: ''
-	},
-	win: { 
-		type: Array,
-		required: false,
-		default: []
 	}
-})
+}, {timestamps: true})
 
 const BoardModel = mongoose.model('Board', boardSchema);
 
