@@ -12,6 +12,8 @@ export default async function handler (req, res) {
 			const userBoard = await getUserBoard(userId);
 			if (!userBoard) return res.status(400).json({message: 'no user board found'});
 			return res.status(200).json(userBoard);
+		case 'OPTIONS':
+			return res.status(204).json({message: 'OPTIONS'});
 		default: 
 			return res.status(501).json({message: 'unauthorized'});
 	}

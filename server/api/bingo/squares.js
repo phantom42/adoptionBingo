@@ -6,6 +6,8 @@ export default async function handler(req, res){
 			await connectDB();
 			const allSquares = await getAllSquares();
 			return res.status(200).json(allSquares);
+		case 'OPTIONS':
+			return res.status(204).json({message: 'OPTIONS'});
 		default: 
 			return res.status(401).json({message: 'unauthorized'});
 	}
